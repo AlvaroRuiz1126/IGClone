@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LoginScreen = () => {
     const [form, setForm] = useState({
@@ -6,9 +7,7 @@ const LoginScreen = () => {
         password: ''
     });
 
-    const handleClick = () => {
-        console.log(form);
-    };
+    const handleClick = () => {};
 
     const handleChange = ({target}) => {
         setForm({
@@ -23,7 +22,6 @@ const LoginScreen = () => {
             ...form,
             [event.target.name]: event.target.value
         });
-        console.log("submit", form);
     };
 
     return (
@@ -33,6 +31,7 @@ const LoginScreen = () => {
 
                 <form className="center form" onSubmit={handleSubmit}>
                     <input
+                        autoComplete="off"
                         type="text"
                         name="username"
                         value={form.username}
@@ -41,6 +40,7 @@ const LoginScreen = () => {
                     />
 
                     <input
+                        autoComplete="off"
                         type="password"
                         name="password"
                         value={form.password}
@@ -60,11 +60,11 @@ const LoginScreen = () => {
                         <hr />
                     </div>
 
-                    <a href="#">¿Olvidaste tú contraseña?</a>
+                    <a className="password" href="#">¿Olvidaste tú contraseña?</a>
                 </form>
 
                 <div className="contanier">
-                    ¿No tienes una cuenta? <a href="#">Regístrate</a>
+                    ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
                 </div>
             </main>
         </React.Fragment>

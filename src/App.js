@@ -1,9 +1,9 @@
 import './App.css';
-import LoginScreen from './pages/auth/LoginScreen';
+import { IGRouter } from './routes/IGRouter';
 
 const InstagramApp = () => {
   return (
-    <LoginScreen />
+    <IGRouter />
   );
 };
 
